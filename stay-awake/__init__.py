@@ -8,6 +8,7 @@ GitHub     : https://github.com/singhsidhukuldeep
 Description: The main module that is used for triggering stay-awake
 """
 
+
 print('>> Starting')
 
 userName = "singhsidhukuldeep"
@@ -52,16 +53,15 @@ except Exception as exp:
     print (f'>><< Error: {exp}')
     print(errorMessage)
     exit()
-print(f'>> Setup Complete')
+print('>> Setup Complete')
 
 def hasMoved(currentLocation):
     try:
         time.sleep(randint(0,2))
         if pyautogui.position() == currentLocation:
             return False
-        else:
-            print('>> Input detected, interrupting stay-awake')
-            return True
+        print('>> Input detected, interrupting stay-awake')
+        return True
     except Exception as exp:
         print(f'>><< Error: {exp}')
         print(errorMessage)
@@ -90,9 +90,9 @@ def doMove(currentLocation):
         exit()
 
 try:
-    while (True):
+    while True:
         print('>> Checking')
-        if prevousLocation == None:
+        if prevousLocation is None:
             prevousLocation = pyautogui.position()
             print('>> Testing Stay-Awake')
             doMove(prevousLocation)
